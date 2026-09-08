@@ -1,0 +1,22 @@
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" type="text/css" href="{% static 'css/predict.css' %}">
+<body id="prediction">
+<h1>Upload Image</h1>
+<form method="post" enctype="multipart/form-data" action="{% url 'predictImage' %}">
+{% csrf_token %}
+<div class="col-md-4 col-sm-4"><label>Upload Image File Here:</label> </div> <input name="filePath" type="file"><br><br>
+ <br>
+ <input type="submit" value="Submit" ></div>
+</form>
+{% if prediction %}
+<h1>{{prediction}}</h1>
+{% endif %}
+</body>
+
+</html>
+{% endblock content %}
